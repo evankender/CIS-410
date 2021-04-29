@@ -6,15 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/StartScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/game1.unity
     guid: 937f750439fdb1a4a84bae87923dd050
   - enabled: 1
-    path: Assets/Scenes/BalloonGame.unity
+    path: Assets/Scenes/BalloonGameYellow.unity
     guid: 15c1328bdc338484da2bba7459908e1d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/game3.unity
     guid: 23a80538348f1114f93962db2c5bde08
+  - enabled: 1
+    path: Assets/Scenes/BalloonGameBlue.unity
+    guid: 22b2937f0db4d69498fa61ebe5bece22
+  - enabled: 1
+    path: Assets/Scenes/BalloonGameRed.unity
+    guid: 2ed2ddd28b2efc04eb90a9a98aae8f81
+  - enabled: 1
+    path: Assets/Scenes/BalloonGameGreen.unity
+    guid: 046da8b75543f7742835f3f2d97fce17
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 3b118049fee4e814584b078f6c145e11
   m_configObjects: {}
