@@ -8,9 +8,6 @@ public class gameTimer : MonoBehaviour
 {
   private float timer;
   public int countGames = 4;
-  public static int gamesPlayed = 0;
-  public static int[] gameStates = new int[10];
-
 
   void OnSceneLoaded()
   {
@@ -23,9 +20,9 @@ public class gameTimer : MonoBehaviour
     int seconds = (int)(timer % 60);
     if(seconds > 10)
     {
-      if(startGame.won == 0){
-        startGame.lives--;
-        if(startGame.lives == 0){
+      if(startGame.won == 0){ //if game not won
+        startGame.lives--; //lives - 1
+        if(startGame.lives == 0){ //if lives = 0 end game
           EndGame();
           return;
         }
@@ -38,18 +35,18 @@ public class gameTimer : MonoBehaviour
   private void LoadRandomScene()
   {
 
-    if(startGame.gamesPlayed == countGames){ //if all games are played
+    if(startGame.gamesPlayed == countGames){ //if all games are played end game
       EndGame();
       return;
     }
 
-    int scene = Random.Range(1, 5);
+    int scene = Random.Range(1, 5); //random scene index 0 is start 5 is endscreen
     //Debug.Log(gameTimer.gameStates[scene]);
 
-    if(startGame.gameStates[scene] == 0){ //if game played
+    if(startGame.gameStates[scene] == 0){ //if game not played
       startGame.gameStates[scene] = 1; //append played game
       SceneManager.LoadScene(scene); //load game
-      startGame.gamesPlayed++;
+      startGame.gamesPlayed++; //increment number of games played
       return;
     }
     else{
