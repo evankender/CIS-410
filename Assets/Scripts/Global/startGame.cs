@@ -11,8 +11,6 @@ public class startGame : MonoBehaviour
   public static int lives = 3;
   public static int won = 0;
 
-
-
   public void LoadScene()
   {
     int scene = Random.Range(1, 4);

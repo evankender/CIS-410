@@ -15,7 +15,6 @@ public class gameTimer : MonoBehaviour
   void OnSceneLoaded()
   {
     timer = 0.0f;
-    startGame.won = 0;
   }
 
   void Update()

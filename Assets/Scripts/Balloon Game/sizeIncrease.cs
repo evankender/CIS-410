@@ -7,13 +7,13 @@ public class sizeIncrease : MonoBehaviour
 {
   public GameObject balloon;
   public GameObject instrText;
-  private float pop;
-
+  private float pop = 0;
 
     void OnSceneLoaded()
     {
         balloon = GetComponent<GameObject>();
         instrText = GetComponent<GameObject>();
+
     }
 
     void Update(){
@@ -27,5 +27,9 @@ public class sizeIncrease : MonoBehaviour
             startGame.won = 1;
           }
         }
+        if(pop < 4.8f){
+          startGame.won = 0;
+        }
     }
+
 }
