@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class gameTimer : MonoBehaviour
 {
   private float timer;
-  public int countGames = 4;
+  public int countGames = 3;
 
   void OnSceneLoaded()
   {
@@ -32,15 +32,15 @@ public class gameTimer : MonoBehaviour
     }
   }
 
-  private void LoadRandomScene()
+  public void LoadRandomScene()
   {
 
-    if(startGame.gamesPlayed == countGames){ //if all games are played end game
+    if(startGame.gamesPlayed == countGames || startGame.lives == 0){ //if all games are played end game
       EndGame();
       return;
     }
 
-    int scene = Random.Range(1, 5); //random scene index 0 is start 5 is endscreen
+    int scene = Random.Range(1, 4); //random scene index 0 is start 5 is endscreen
     //Debug.Log(gameTimer.gameStates[scene]);
 
     if(startGame.gameStates[scene] == 0){ //if game not played
@@ -57,6 +57,6 @@ public class gameTimer : MonoBehaviour
 
   private void EndGame()
   {
-      SceneManager.LoadScene(5); //load end screen
+      SceneManager.LoadScene(4); //load end screen
   }
 }

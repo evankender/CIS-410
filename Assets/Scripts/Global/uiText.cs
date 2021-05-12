@@ -20,7 +20,7 @@ public class uiText : MonoBehaviour
     void Update()
     {
         time -= Time.deltaTime;
-        timeText.text = "Time remaining: " + (int)time;
+        timeText.text = "Time remaining: " +  (int)time;
         livesText.text = "Lives remaining: " + (int)startGame.lives;
     }
 }

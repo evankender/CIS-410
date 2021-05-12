@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 using TMPro;
 
@@ -16,7 +17,7 @@ public class sizeIncrease : MonoBehaviour
     }
 
     void Update(){
-        if(Input.GetKeyDown("f")){ //if f is pressed
+        if(Keyboard.current.fKey.wasPressedThisFrame){ //if f is pressed
           instrText.SetActive(false); //hide instructions
           float scale = Random.value/5f; //random scale value from 0 to .2
           pop += scale; //track total scale
