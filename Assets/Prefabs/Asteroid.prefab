@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8163589788833504363}
   - component: {fileID: 1634472093464140133}
   - component: {fileID: 6336142080989574633}
+  - component: {fileID: 6343235003623900322}
   m_Layer: 0
-  m_Name: Astroid
+  m_Name: Asteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,3 +129,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6343235003623900322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163589788833504360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 3.31, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}

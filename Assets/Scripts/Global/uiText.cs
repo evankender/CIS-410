@@ -1,26 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public class uiText : MonoBehaviour
-{
-    private float time;
-    public TextMeshProUGUI timeText;
-    public TextMeshProUGUI livesText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        time = 11;
-        timeText.text = "Time remaining: " + (int)time;
-        livesText.text = "Lives remaining: " + (int)startGame.lives;
-    }
+namespace gameLogic{
+  public class uiText : MonoBehaviour
+  {
+      private float time;
+      bool flag;
+      public TextMeshProUGUI timeText;
+      randomSceneLoader randomSceneLoader;
+      int countGames;
 
-    // Update is called once per frame
-    void Update()
-    {
-        time -= Time.deltaTime;
-        timeText.text = "Time remaining: " +  (int)time;
-        livesText.text = "Lives remaining: " + (int)startGame.lives;
-    }
+
+
+      void Start()
+      {
+          flag = true;
+          time = 11;
+          timeText.text =  "" + ((int)time); //set time in UI
+          randomSceneLoader = gameObject.AddComponent<randomSceneLoader>();
+          countGames = SceneManager.sceneCountInBuildSettings -1;
+      }
+
+      void FixedUpdate()
+      {
+          time -= Time.deltaTime;
+          timeText.text = "" + ((int)time); //update time in UI
+          if (time < 0f)
+          { //if time less than zero load new scene
+            if (flag)
+            {
+              flag = false;
+              startGame.lives--;
+              randomSceneLoader.LoadRandomScene();
+
+              
+            }
+          }
+      }
+  }
 }

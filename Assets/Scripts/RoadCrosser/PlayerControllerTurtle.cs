@@ -4,70 +4,51 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerControllerTurtle : MonoBehaviour
+namespace gameLogic
 {
-    public float speed;
-    public InputAction wasd;
-    public CharacterController controller;
-    public int countGames = 4;
+  public class PlayerControllerTurtle : MonoBehaviour
+  {
+      public float speed;
+      public float rotateSpeed;
+      public InputAction wasd;
+      public CharacterController controller;
+      public GameObject player;
+      public int countGames = 4;
+      randomSceneLoader randomSceneLoader;
 
-    void Start()
-    {
-      controller = GetComponent<CharacterController>();
-    }
-
-    void OnEnable()
-    {
-      wasd.Enable();
-    }
-
-    void OnDisable()
-    {
-      wasd.Disable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-      Vector2 inputVector = wasd.ReadValue<Vector2>();
-      Vector3 moveVector = new Vector3();
-
-      moveVector.x = inputVector.x;
-      moveVector.y = inputVector.y;
-
-      controller.Move(moveVector * Time.deltaTime * speed);
-
-      if(transform.position.y > 21){
-        LoadRandomScene();
+      void Awake()
+      {
+        Debug.Log("Turtle");
+        controller = GetComponent<CharacterController>();
+        randomSceneLoader = gameObject.AddComponent<randomSceneLoader>();
       }
 
-    }
+      void Update()
+      {
+        Vector2 move = wasd.ReadValue<Vector2>();
 
-    public void LoadRandomScene()
-    {
+        controller.Move(move * Time.deltaTime * speed); //move player
 
-      if(startGame.gamesPlayed == countGames){ //if all games are played end game
-        EndGame();
-        return;
+        if(move != Vector2.zero) //if player not moving
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.back,move); //rotate player in direction of movement
+        }
+
+        if(transform.position.y > 21) //if player crossed road
+        {
+          randomSceneLoader.LoadRandomScene(); //load random scene
+        }
+
       }
 
-      int scene = Random.Range(1, 5); //random scene index 0 is start 5 is endscreen
-      //Debug.Log(gameTimer.gameStates[scene]);
-
-      if(startGame.gameStates[scene] == 0){ //if game not played
-        startGame.gameStates[scene] = 1; //append played game
-        SceneManager.LoadScene(scene); //load game
-        startGame.gamesPlayed++; //increment number of games played
-        return;
+      void OnEnable()
+      {
+        wasd.Enable();
       }
-      else{
-        LoadRandomScene(); //retry to get an unplayed game
-        return;
-      }
-    }
 
-    private void EndGame()
-    {
-        SceneManager.LoadScene(5); //load end screen
-    }
+      void OnDisable()
+      {
+        wasd.Disable();
+      }
+  }
 }

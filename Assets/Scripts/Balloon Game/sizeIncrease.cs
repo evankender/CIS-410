@@ -3,33 +3,43 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class sizeIncrease : MonoBehaviour
+namespace gameLogic
 {
-  public GameObject balloon;
-  public GameObject instrText;
-  private float pop = 0;
+  public class sizeIncrease : MonoBehaviour
+  {
+    public GameObject balloon;
+    public GameObject instrText;
+    private float pop = 0;
+    randomSceneLoader randomSceneLoader;
 
-    void OnSceneLoaded()
-    {
-        balloon = GetComponent<GameObject>();
-        instrText = GetComponent<GameObject>();
-    }
+      void Awake()
+      {
+          Debug.Log("balloon");
+          randomSceneLoader = gameObject.AddComponent<randomSceneLoader>();
+      }
 
-    void Update(){
-        if(Keyboard.current.fKey.wasPressedThisFrame){ //if f is pressed
-          instrText.SetActive(false); //hide instructions
-          float scale = Random.value/5f; //random scale value from 0 to .2
-          pop += scale; //track total scale
-          balloon.transform.localScale += new Vector3(scale, scale, scale);//scale balloon by random scale
-          if(pop > 4.8f){ //if total scale > 4.8
-            balloon.SetActive(false); //hide balloon aka pop
-            startGame.won = 1; //set won to 1
+      void OnSceneLoaded()
+      {
+          balloon = GetComponent<GameObject>();
+          instrText = GetComponent<GameObject>();
+
+      }
+
+      void Update(){
+          if(Keyboard.current.fKey.wasPressedThisFrame){ //if f is pressed
+            instrText.SetActive(false); //hide instructions
+            float scale = Random.value/5f; //random scale value from 0 to .2
+            pop += scale; //track total scale
+            balloon.transform.localScale += new Vector3(scale, scale, scale);//scale balloon by random scale
+            if(pop > 4.7f){ //if total scale > 4.8
+              balloon.SetActive(false); //hide balloon aka pop
+              randomSceneLoader.LoadRandomScene();
+              return;
+            }
           }
-        }
-        if(pop < 4.8f){ //hacky code to fix bug: need better solution
-          startGame.won = 0;
-        }
+      }
     }
 
-}
+  }

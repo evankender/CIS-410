@@ -279,10 +279,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dodge using A and D!
+  m_text: Dodge move with "A" & "D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a60aa0dae1575014dba19d3ca0da7ddb, type: 2}
+  m_sharedMaterial: {fileID: -6132197352977027472, guid: a60aa0dae1575014dba19d3ca0da7ddb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -306,8 +306,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 140.04874, y: 0, z: 140.04883, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -992,53 +992,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  wasd:
-    m_Name: Wasd
+  ad:
+    m_Name: Ad
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 05c5e910-6ad7-48e4-9f67-14a7df864ad2
+    m_Id: a8aed88f-ee94-48b2-91ec-cdb2db554e3e
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 2D Vector
-      m_Id: adeb1a94-7136-48a0-aca9-ab50fba7ca8c
+      m_Id: 54e24769-868e-4606-83a6-980dff847fe2
       m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Wasd
+      m_Action: Ad
       m_Flags: 4
     - m_Name: up
-      m_Id: a0519128-2258-40c1-b9c3-8d3438c89d86
-      m_Path: <Keyboard>/w
+      m_Id: 7488b087-215f-4d40-8f83-3152741c483e
+      m_Path: 
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Wasd
+      m_Action: Ad
       m_Flags: 8
     - m_Name: down
-      m_Id: a166c2db-d2a9-4ec2-b66f-64c06081f549
-      m_Path: <Keyboard>/s
+      m_Id: 7cb9c6f9-730a-4800-a08c-1edb9a8b4b58
+      m_Path: 
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Wasd
+      m_Action: Ad
       m_Flags: 8
     - m_Name: left
-      m_Id: 824f6eb3-47f4-4e2b-8d6f-498825d81b1d
+      m_Id: ba4679b7-a98c-4398-94b5-625100800a6d
       m_Path: <Keyboard>/a
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Wasd
+      m_Action: Ad
       m_Flags: 8
     - m_Name: right
-      m_Id: 222f97a6-7c8f-4931-b0dd-d8ccc554ab0b
+      m_Id: 84b09c44-24f1-4b74-9698-d7f7c62f9244
       m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Wasd
+      m_Action: Ad
       m_Flags: 8
   controller: {fileID: 2108010610}
 --- !u!212 &2108010605

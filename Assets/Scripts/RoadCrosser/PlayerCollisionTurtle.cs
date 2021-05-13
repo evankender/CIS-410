@@ -4,58 +4,38 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using TMPro;
+using gameLogic;
 
-public class PlayerCollisionTurtle : MonoBehaviour
-{
-  public GameObject instrText;
-  private int flag = 0;
+namespace gameLogic{
+  public class PlayerCollisionTurtle : MonoBehaviour
 
-  void Start()
   {
-    startGame.lives += 2;
-  }
+    public GameObject instrText;
+    private int flag = 0; //collides twice on start
+    private int oneFlag = 1;
+    randomSceneLoader randomSceneLoader;
 
-  void Update(){
-    if(Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.aKey.wasPressedThisFrame){
-      instrText.SetActive(false);
-    }
-  }
-
-  private void OnTriggerEnter(Collider other){
-    Debug.Log("hit");
-    Debug.Log(startGame.lives);
-    startGame.lives--;
-    if (flag > 1){
-      LoadRandomScene();
-    }
-    flag++;
-  }
-
-  public void LoadRandomScene()
-  {
-
-    if(startGame.gamesPlayed == 3 || startGame.lives == 0){ //if all games are played end game
-      EndGame();
-      return;
+    void Awake()
+    {
+      startGame.lifeFlag = 1; //if time runs out lose a life
+      randomSceneLoader = gameObject.AddComponent<randomSceneLoader>();
     }
 
-    int scene = Random.Range(1, 4); //random scene index 0 is start 5 is endscreen
-    //Debug.Log(gameTimer.gameStates[scene]);
-
-    if(startGame.gameStates[scene] == 0){ //if game not played
-      startGame.gameStates[scene] = 1; //append played game
-      SceneManager.LoadScene(scene); //load game
-      startGame.gamesPlayed++; //increment number of games played
-      return;
+    void Update(){
+      if(Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.aKey.wasPressedThisFrame){ //if w or a pressed
+        instrText.SetActive(false); //hide instructions
+      }
     }
-    else{
-      LoadRandomScene(); //retry to get an unplayed game
-      return;
-    }
-  }
 
-  private void EndGame()
-  {
-      SceneManager.LoadScene(4); //load end screen
+    private void OnTriggerEnter(Collider other){
+      if (flag > 1){ //collides twice on start
+        if(oneFlag == 1){
+        Debug.Log(--startGame.lives);
+        randomSceneLoader.LoadRandomScene();
+        oneFlag = 0;
+        }
+      }
+      flag++; //collides twice on start
+    }
   }
 }
