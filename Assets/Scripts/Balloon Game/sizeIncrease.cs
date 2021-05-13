@@ -18,6 +18,7 @@ namespace gameLogic
       {
           Debug.Log("balloon");
           randomSceneLoader = gameObject.AddComponent<randomSceneLoader>();
+          startGame.lifeFlag = 1;
       }
 
       void OnSceneLoaded()
@@ -35,6 +36,7 @@ namespace gameLogic
             balloon.transform.localScale += new Vector3(scale, scale, scale);//scale balloon by random scale
             if(pop > 4.7f){ //if total scale > 4.8
               balloon.SetActive(false); //hide balloon aka pop
+              startGame.lifeFlag = 0;
               randomSceneLoader.LoadRandomScene();
               return;
             }

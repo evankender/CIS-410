@@ -37,7 +37,10 @@ namespace gameLogic
       while(flag){
         scene = Random.Range(1, countGames);
         while(startGame.gameStates[scene] == 0){
-         //if game not played
+          if(startGame.lifeFlag == 1){
+            --startGame.lives;
+            startGame.lifeFlag = 0;
+          }
           startGame.gamesPlayed++; //increment number of games played
           startGame.gameStates[scene] = 1;
           flag = false;

@@ -33,10 +33,9 @@ namespace gameLogic{
             if (flag)
             {
               flag = false;
-              startGame.lives--;
               randomSceneLoader.LoadRandomScene();
 
-              
+
             }
           }
       }

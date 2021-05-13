@@ -36,6 +36,7 @@ namespace gameLogic
 
         if(transform.position.y > 21) //if player crossed road
         {
+          startGame.lifeFlag = 0;
           randomSceneLoader.LoadRandomScene(); //load random scene
         }
 

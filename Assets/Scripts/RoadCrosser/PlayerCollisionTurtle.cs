@@ -30,7 +30,7 @@ namespace gameLogic{
     private void OnTriggerEnter(Collider other){
       if (flag > 1){ //collides twice on start
         if(oneFlag == 1){
-        Debug.Log(--startGame.lives);
+        startGame.lifeFlag = 1;
         randomSceneLoader.LoadRandomScene();
         oneFlag = 0;
         }
