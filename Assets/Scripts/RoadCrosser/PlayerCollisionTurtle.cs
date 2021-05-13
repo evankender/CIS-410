@@ -21,13 +21,15 @@ namespace gameLogic{
       randomSceneLoader = gameObject.AddComponent<randomSceneLoader>();
     }
 
-    void Update(){
+    void Update()
+    {
       if(Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.aKey.wasPressedThisFrame){ //if w or a pressed
         instrText.SetActive(false); //hide instructions
       }
     }
 
-    private void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other)
+    {
       if (flag > 1){ //collides twice on start
         if(oneFlag == 1){
         startGame.lifeFlag = 1;
