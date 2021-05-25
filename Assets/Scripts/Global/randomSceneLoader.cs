@@ -26,7 +26,7 @@ namespace gameLogic
         return;
       }
 
-      if(startGame.gamesPlayed >= 3) //if all games are played
+      if(startGame.gamesPlayed >= countGames-1) //if all games are played
       {
         SceneManager.LoadScene(countGames); //load end scene
         Debug.Log("game");
